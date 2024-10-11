@@ -7,5 +7,6 @@ scikit-learn
 xgboost
 scipy
 dill
+flask
 
 #-e .

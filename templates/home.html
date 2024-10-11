@@ -1,0 +1,266 @@
+<html>
+<body>
+    <div class="loan">
+       <h1>Machine Learning Project</h1>
+   
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>
+            <legend>Loan Interest Rate Prediction</legend>
+        </h1>
+        <div class="mb-3">
+            <label class="form-label">Age</label>
+            <input class="form-control" type="number" name="age" placeholder="Enter your age" required min="18" />
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label">Annual Income</label>
+            <input class="form-control" type="number" name="annual_income" placeholder="Enter your annual income" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Credit Score</label>
+            <input class="form-control" type="number" name="credit_score" placeholder="Enter your credit score" required min="300" max="850" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Employment Status</label>
+            
+            <select class="form-control" name="employment_status" placeholder="Enter the employment status " required>
+                <option class="placeholder" selected disabled value=""> Select Employment status</option>
+                <option value="Employed">
+                    employed
+                </option>
+                <option value="Unemployed">
+                    Unemployed
+                </option>
+                <option value="Self-Employed">
+                    selfemployed
+                </option>
+
+        
+            </select>
+
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Education Level</label>
+            
+            <select class="form-control" name="education_level" placeholder="Enter the education level " required>
+                <option class="placeholder" selected disabled value="">Select your education level</option>
+                <option value="Master">
+                    master
+                </option>
+                <option value="Associate">
+                    associate
+                </option>
+                <option value="Bachelor">
+                    bachelor
+                </option>
+                <option value="High School">
+                    highschool
+                </option>
+                <option value="Associate">
+                    associate
+                </option>
+                <option value="Doctorate">
+                    Doctorate
+                </option>
+            </select>
+        </div>
+
+
+        <div class="mb-3">
+            <label class="form-label">Loan Amount</label>
+            <input class="form-control" type="number" name="loan_amount" placeholder="Enter your loan amount" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Marital Status</label>
+            
+            <select class="form-control" name="marital_status" placeholder="Enter the marital status " required>
+                <option class="placeholder" selected disabled value=""> Select Marital status</option>
+                <option value="Married">
+                    married
+                </option>
+                <option value="Single">
+                    single
+                </option>
+                <option value="Widowed">
+                    windowed
+                </option>
+                <option value="Divorced">
+                    Divorced
+                </option>
+
+        
+            </select>
+
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Loan Duration (Months)</label>
+            <input class="form-control" type="number" name="loan_duration" placeholder="Enter the loan duration in months" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Number of Dependents</label>
+            <input class="form-control" type="number" name="number_of_dependents" placeholder="Enter the number of dependents" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Home Status</label>
+            
+            <select class="form-control" name="home_status" placeholder="Enter the home status " required>
+                <option class="placeholder" selected disabled value=""> Select home status</option>
+                <option value="Mortgage">
+                    mortgage
+                </option>
+                <option value="Rent">
+                    rent
+                </option>
+                <option value="Own">
+                    own
+                </option>
+                <option value="Other">
+                    other
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Monthly Debt Payments</label>
+            <input class="form-control" type="number" name="monthly_debt_payments" placeholder="Enter your monthly debt payments" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Credit Card Utilization Rate (%)</label>
+            <input class="form-control" type="number" step="0.01" name="credit_card_utilization_rate" placeholder="Enter your credit card utilization rate" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Number of Open Credit Lines</label>
+            <input class="form-control" type="number" name="number_of_open_credit_lines" placeholder="Enter the number of open credit lines" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Number of Credit Inquiries</label>
+            <input class="form-control" type="number" name="number_of_credit_inquiries" placeholder="Enter the number of credit inquiries" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Debt-to-Income Ratio</label>
+            <input class="form-control" type="number" step="0.01" name="debt_to_income_ratio" placeholder="Enter your debt-to-income ratio" required />
+
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Bankruptcy History</label>
+            <input class="form-control" type="number" name="bankruptcy_history" placeholder="Enter the number of bankruptcies" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Loan Purpose</label>
+            
+            <select class="form-control" name="loan_purpose" placeholder="Enter the loan purpose " required>
+                <option class="placeholder" selected disabled value=""> Select loan purpose</option>
+                <option value="Auto">
+                    auto
+                </option>
+                <option value="Home">
+                    home
+                </option>
+                <option value="Education">
+                    education
+                </option>
+                <option value="Other">
+                    other
+                </option>
+                <option value="Debt Consolidation">
+                    debt consolidation
+                </option>
+            </select>
+
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Previous Loan Defaults</label>
+            <input class="form-control" type="number" name="previous_loan_defaults" placeholder="Enter the number of previous loan defaults" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Payment History (out of 100)</label>
+            <input class="form-control" type="number" name="payment_history" placeholder="Enter your payment history score" required min="0" max="100" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Length of Credit History (Years)</label>
+            <input class="form-control" type="number" name="length_of_credit_history" placeholder="Enter the length of your credit history in years" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Savings Account Balance</label>
+            <input class="form-control" type="number" name="savings_account_balance" placeholder="Enter your savings account balance" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Checking Account Balance</label>
+            <input class="form-control" type="number" name="checking_account_balance" placeholder="Enter your checking account balance" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Total Assets</label>
+            <input class="form-control" type="number" name="total_assets" placeholder="Enter your total assets value" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Total Liabilities</label>
+            <input class="form-control" type="number" name="total_liabilities" placeholder="Enter your total liabilities value" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Utility Bills Payment History (%)</label>
+            <input class="form-control" type="number" step="0.01" name="utility_bills_payment_history" placeholder="Enter your utility bills payment history" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Job Tenure (Years)</label>
+            <input class="form-control" type="number" name="job_tenure" placeholder="Enter your job tenure in years" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Base Interest Rate (%)</label>
+            <input class="form-control" type="number" step="0.01" name="base_interest_rate" placeholder="Enter the base interest rate" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Interest Rate (%)</label>
+            <input class="form-control" type="number" step="0.01" name="interest_rate" placeholder="Enter your predicted interest rate" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Monthly Loan Payment</label>
+            <input class="form-control" type="number" name="monthly_loan_payment" placeholder="Enter your monthly loan payment" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Total Debt-to-Income Ratio (%)</label>
+            <input class="form-control" type="number" step="0.01" name="total_debt_to_income_ratio" placeholder="Enter your total debt-to-income ratio" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Risk Score</label>
+            <input class="form-control" type="number" step="0.01" name="risk_score" placeholder="Enter your risk score" required />
+        </div>
+
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict Interest Rate" />
+        </div>
+
+
+    </form>
+
+    <h2>
+       The predicted is: {{results}}
+    </h2>
+   <body>
+</html>
